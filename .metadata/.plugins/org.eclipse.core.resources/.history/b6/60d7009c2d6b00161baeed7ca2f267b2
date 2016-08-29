@@ -1,0 +1,48 @@
+<?php
+define("ADAY", 60*60*24);
+if (!isset($_POST['month']) || !isset($_POST['year'])) {
+    $nowArray = getdate();
+    $month = $nowArray['mon'];
+    $year = $nowArray['year'];
+} else {
+    $month = $_POST['month'];
+    $year = $_POST['year'];
+}
+
+$start = mktime(12,0,0,$month,1,$year);
+$firstDayArray = getdate($start);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo "Calendar: ".$firstDayArray['month']." ".$firstDayArray['year']; ?></title>
+	<style type="text/css">
+		table {
+			border: 1px solid black;
+			border-collapse: collapse;
+		} 
+		th {
+			border: 1px solid black;
+			padding: 6px;
+			font-weight: bold;
+			background: #ccc;
+		}
+		td {
+			border: 1px solid black;
+			padding: 6px;
+			vertical-align: top;
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+<h1>Select a Month/Year Combination</h1>
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+	<select name="month">
+		<<?php 
+			
+		 ?>
+	</select>
+</form>
+</body>
+</html>
